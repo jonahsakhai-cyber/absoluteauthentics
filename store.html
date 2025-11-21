@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Absolute Authentics | Premium Sports Memorabilia</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/store.css">
+    <link rel="stylesheet" href="css/newsletter-popup.css">
+    <link rel="stylesheet" href="css/store-highlight.css">
+    <link rel="stylesheet" href="css/store-light-theme.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">ABSOLUTE AUTHENTICS</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="sell.html" class="nav-link">Sell Now</a></li>
+                <li><a href="index.html#payment-plans" class="nav-link">Payment Plans</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="store.html" class="nav-link nav-store-highlight active">Store</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="nav-icon-btn" id="storeSearchBtn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-content">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-brand">ABSOLUTE AUTHENTICS</div>
+                <div class="mobile-menu-tagline">Where Legends Live Forever</div>
+            </div>
+            <ul class="mobile-menu-links">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="store.html" class="mobile-nav-link">Store</a></li>
+                <li><a href="sell.html" class="mobile-nav-link">Sell Now</a></li>
+                <li><a href="index.html#payment-plans" class="mobile-nav-link">Payment Plans</a></li>
+                <li><a href="index.html#about" class="mobile-nav-link">About</a></li>
+                <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Store Header -->
+    <section class="store-header">
+        <div class="container">
+            <div class="store-header-content">
+                <span class="store-badge">Premium Collection</span>
+                <h1 class="store-title">Our <span class="title-accent">Inventory</span></h1>
+                <p class="store-subtitle">Explore our curated collection of authenticated sports memorabilia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Search Bar -->
+    <section class="store-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search by athlete, item, or year...">
+                </div>
+
+                <!-- Mobile Filter Toggle Button -->
+                <button class="mobile-filter-toggle" id="mobileFilterToggle">
+                    Filters & Sort
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Football">Football</option>
+                        <option value="Baseball">Baseball</option>
+                        <option value="Hockey">Hockey</option>
+                        <option value="Soccer">Soccer</option>
+                        <option value="Golf">Golf</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Athlete Filter -->
+                <div class="filter-group">
+                    <label>Athlete:</label>
+                    <select id="athleteFilter">
+                        <option value="all">All Athletes</option>
+                        <!-- Will be populated dynamically -->
+                    </select>
+                </div>
+
+                <!-- Price Range Slider -->
+                <div class="filter-group filter-group-price">
+                    <label>Price Range:</label>
+                    <div class="price-slider-container">
+                        <input type="range" id="minPriceSlider" min="0" max="50000" value="0" step="500">
+                        <input type="range" id="maxPriceSlider" min="0" max="50000" value="50000" step="500">
+                    </div>
+                    <div class="price-values">
+                        <span id="minPriceValue">$0</span>
+                        <span>-</span>
+                        <span id="maxPriceValue">$50,000+</span>
+                    </div>
+                </div>
+
+                <!-- Sort -->
+                <div class="filter-group">
+                    <label>Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="featured">Featured Items</option>
+                        <option value="highest-price">Highest Price</option>
+                        <option value="lowest-price">Lowest Price</option>
+                        <option value="most-viewed">Most Viewed</option>
+                        <option value="newest">Newest First</option>
+                        <option value="athlete">Athlete (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="store-products">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here dynamically -->
+                <div class="loading-state">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading products...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be added dynamically -->
+            </div>
+
+            <!-- Results Info -->
+            <div class="results-info">
+                <span id="resultsCount">Loading products...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" id="modalContent">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Inquiry Modal -->
+    <div class="product-modal" id="inquiryModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container" style="max-width: 600px;">
+            <button class="modal-close" id="inquiryModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" style="text-align: center; padding: 4rem 3rem;">
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #00d4ff 0%, #0099dd 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);">
+                    <i class="fas fa-phone" style="font-size: 2rem; color: #ffffff;"></i>
+                </div>
+                <h2 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Contact Now to Secure This Item</h2>
+                <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem;">Reach out directly to discuss this premium piece</p>
+                
+                <div style="background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem;">
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-user" style="color: #00d4ff; font-size: 1.2rem;"></i>
+                            <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Name</span>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: #ffffff;" id="contactName">Your Name</div>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-phone" style="color: #00d4ff; font-size: 1.2rem;"></i>
+                            <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Phone</span>
+                        </div>
+                        <a href="tel:+11234567890" style="font-size: 1.5rem; font-weight: 700; color: #00d4ff; text-decoration: none; transition: all 0.3s ease;" id="contactPhone">(123) 456-7890</a>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <i class="fas fa-envelope" style="color: #00d4ff; font-size: 1.2rem;"></i>
+                            <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Email</span>
+                        </div>
+                        <a href="mailto:contact@example.com" style="font-size: 1.3rem; font-weight: 700; color: #00d4ff; text-decoration: none; transition: all 0.3s ease;" id="contactEmail">contact@example.com</a>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <i class="fab fa-instagram" style="color: #00d4ff; font-size: 1.2rem;"></i>
+                            <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.1em;">Instagram</span>
+                        </div>
+                        <a href="https://instagram.com/absoluteauthentics" target="_blank" style="font-size: 1.3rem; font-weight: 700; color: #00d4ff; text-decoration: none; transition: all 0.3s ease;" id="contactInstagram">@absoluteauthentics</a>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="tel:+11234567890" style="flex: 1; padding: 1.2rem 2rem; background: linear-gradient(135deg, #00d4ff 0%, #0099dd 100%); color: #ffffff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                    <a href="mailto:contact@example.com" style="flex: 1; padding: 1.2rem 2rem; background: transparent; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 8px; font-size: 1rem; font-weight: 600; text-transform: uppercase; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-gem"></i>
+                        <span>ABSOLUTE AUTHENTICS</span>
+                    </div>
+                    <p class="footer-tagline">Premium Sports Memorabilia</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Absolute Authentics. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Newsletter VIP Popup -->
+    <div class="newsletter-popup-overlay" id="newsletterPopup">
+        <div class="newsletter-popup">
+            <button class="newsletter-close" id="newsletterClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Photo Collage Section -->
+            <div class="newsletter-collage">
+                <div class="collage-grid">
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/iTxkgkA.jpeg" alt="Kobe Display">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/ifNNnx9.jpeg" alt="Jordan Collection">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/6N1Bqmp.jpeg" alt="Signed Basketballs">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/UXbApk6.jpeg" alt="Kobe Jerseys">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/UnqhEYY.jpeg" alt="Curry Collection">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/J07zpa4.jpeg" alt="Premium Frames">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/5ijc0fX.jpeg" alt="Jordan Display">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/rkBbG3E.jpeg" alt="Jersey Collection">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/v2slTvf.jpeg" alt="Collection 9">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/DsTAEce.jpeg" alt="Collection 10">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/jvT4bOK.jpeg" alt="Collection 11">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/Qnq1XiM.jpeg" alt="Collection 12">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/VjkT28e.jpeg" alt="Collection 13">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/6BvWBp6.jpeg" alt="Collection 14">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/OGq8OvN.jpeg" alt="Collection 15">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/s8DLrRR.jpeg" alt="Collection 16">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/OQvQIO6.jpeg" alt="Collection 17">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/4ipCaDf.jpeg" alt="Collection 18">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/O0kM3Zx.jpeg" alt="Collection 19">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/Rqk245n.jpeg" alt="Collection 20">
+                    </div>
+                    <div class="collage-item">
+                        <img src="https://i.imgur.com/4FpnUUT.jpeg" alt="Collection 21">
+                    </div>
+                </div>
+                <div class="collage-overlay">
+                    <div class="collage-text">
+                        <i class="fas fa-gem"></i>
+                        <p>PREMIUM MEMORABILIA</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Content Section -->
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2 class="newsletter-title">Join Our VIP List</h2>
+                <p class="newsletter-subtitle">Be the first to access <strong style="color: #00d4ff;">exclusive deals</strong>, rare collectibles, and <strong style="color: #00d4ff;">new inventory</strong> before anyone else.</p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <label for="subscriberName">Full Name</label>
+                        <input type="text" id="subscriberName" name="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subscriberEmail">Email Address</label>
+                        <input type="email" id="subscriberEmail" name="email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subscriberPhone">Phone Number</label>
+                        <input type="tel" id="subscriberPhone" name="phone" placeholder="(310) 123-4567" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subscriberInterests">What Do You Collect?</label>
+                        <input type="text" id="subscriberInterests" name="interests" placeholder="Basketball, Jordan memorabilia, etc..." required>
+                    </div>
+                    
+                    <button type="submit" class="newsletter-submit">
+                        <span>Join the VIP List</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <p class="newsletter-privacy">We respect your privacy. Unsubscribe anytime.</p>
+                </form>
+                
+                <div class="newsletter-success" id="newsletterSuccess" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Welcome to the VIP List!</h3>
+                    <p>You'll be the first to know about our exclusive deals and new inventory.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+</body>
+</html>
