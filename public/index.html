@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Authentics - Premium Sports Memorabilia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏆 Absolute Authentics</h1>
+            <p class="tagline">Premium Sports Memorabilia</p>
+        </header>
+
+        <main>
+            <section class="welcome">
+                <h2>Welcome to Absolute Authentics</h2>
+                <p>Your trusted source for authenticated sports memorabilia.</p>
+            </section>
+
+            <section class="api-test">
+                <h3>Test API Connection</h3>
+                <button id="healthCheckBtn" class="btn-primary">Check Server Health</button>
+                <div id="healthResult" class="result"></div>
+            </section>
+
+            <section class="info">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><strong>Contact:</strong> Jonahsakhai@gmail.com</li>
+                    <li><strong>Phone:</strong> (310) 938-1236</li>
+                    <li><strong>Instagram:</strong> @absoluteauthentics</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Absolute Authentics. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('healthCheckBtn').addEventListener('click', async () => {
+            const resultDiv = document.getElementById('healthResult');
+            resultDiv.textContent = 'Checking...';
+            resultDiv.className = 'result loading';
+
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <strong>✓ Server Status:</strong> ${data.status}<br>
+                    <strong>Message:</strong> ${data.message}<br>
+                    <strong>Timestamp:</strong> ${new Date(data.timestamp).toLocaleString()}
+                `;
+                resultDiv.className = 'result success';
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <strong>✗ Error:</strong> ${error.message}
+                `;
+                resultDiv.className = 'result error';
+            }
+        });
+    </script>
+</body>
+</html>
