@@ -19,13 +19,19 @@ A luxury e-commerce website for authenticated sports memorabilia featuring premi
 
 ```
 absolute-authentics/
-├── index.html              # Homepage
-├── store.html              # Product catalog page
-├── sell.html               # Sell inquiry page
+├── package.json            # Node.js dependencies and scripts
+├── server.js               # Express server
+├── .gitignore             # Git ignore file
+├── public/                # Static files served by Express
+│   ├── index.html         # Main landing page with API test
+│   └── style.css          # Styles for landing page
+├── index.html             # Original homepage
+├── store.html             # Product catalog page
+├── sell.html              # Sell inquiry page
 ├── css/
-│   ├── style.css           # Main styles
-│   ├── store.css           # Store page styles
-│   ├── sell.css            # Sell page styles
+│   ├── style.css          # Main styles
+│   ├── store.css          # Store page styles
+│   ├── sell.css           # Sell page styles
 │   ├── newsletter-popup.css
 │   ├── premium-enhancements.css
 │   ├── payment-plans.css
@@ -36,17 +42,19 @@ absolute-authentics/
 │   ├── store-light-theme.css
 │   └── theme-toggle.css
 ├── js/
-│   ├── main.js             # Homepage functionality
-│   ├── store.js            # Store page + Firebase integration
-│   └── sell.js             # Sell page functionality
-├── images/                 # Hero images and assets
-└── firebase-config.js      # Firebase configuration (YOU NEED TO CREATE THIS)
+│   ├── main.js            # Homepage functionality
+│   ├── store.js           # Store page + Firebase integration
+│   └── sell.js            # Sell page functionality
+├── images/                # Hero images and assets
+└── firebase-config.js     # Firebase configuration (OPTIONAL - CREATE IF NEEDED)
 ```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
+- Node.js (v14 or higher)
+- npm (comes with Node.js)
 - Web browser (Chrome, Firefox, Safari)
 - Firebase account (free tier works great)
 - Text editor (VS Code recommended)
@@ -59,24 +67,34 @@ absolute-authentics/
    cd absolute-authentics
    ```
 
-2. **Set up Firebase** (see detailed instructions below)
-
-3. **Configure Firebase credentials**
-   - Create `firebase-config.js` in the root directory
-   - Add your Firebase credentials (template provided below)
-
-4. **Open in browser**
+2. **Install dependencies**
    ```bash
-   # Option 1: Open directly
-   open index.html
-   
-   # Option 2: Use local server (recommended)
-   npx serve
-   # or
-   python3 -m http.server 8000
+   npm install
    ```
 
-5. **Visit** `http://localhost:8000`
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+4. **Visit the application**
+   - Open your browser and go to `http://localhost:3000`
+   - Test the health check endpoint by clicking the button on the page
+
+5. **For development with auto-reload**
+   ```bash
+   npm run start:dev
+   ```
+
+### Firebase Setup (Optional for static site)
+
+The server provides a minimal Express backend. For full functionality including product database, you'll need to:
+
+6. **Set up Firebase** (see detailed instructions below)
+
+7. **Configure Firebase credentials**
+   - Create `firebase-config.js` in the root directory
+   - Add your Firebase credentials (template provided below)
 
 ## 🔥 Firebase Setup (IMPORTANT!)
 
