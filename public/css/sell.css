@@ -1,0 +1,502 @@
+/* ========================================
+   SELL PAGE - SIMPLIFIED PREMIUM DESIGN
+   ======================================== */
+
+/* Hero Section - Clean & Bold */
+.sell-hero-simple {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    overflow: hidden;
+    padding: 8rem 2rem 4rem;
+}
+
+.hero-background-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+}
+
+.hero-content-simple {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge-simple {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px;
+    color: #00d4ff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.2); }
+    50% { box-shadow: 0 0 30px rgba(0, 212, 255, 0.4); }
+}
+
+.hero-title-simple {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -2px;
+}
+
+.text-glow {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+.text-red {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle-simple {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+/* Athletes Section */
+.athletes-section {
+    padding: 6rem 2rem;
+    background: #0a0a0a;
+    position: relative;
+}
+
+.section-title-centered {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.title-small {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.title-small::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.athletes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.athlete-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.athlete-card:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+}
+
+.athlete-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.athlete-sport {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.athletes-note {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+/* What We Buy Section */
+.what-we-buy-section {
+    padding: 8rem 2rem;
+    background: linear-gradient(135deg, #0a0a0a 0%, #121212 100%);
+    position: relative;
+}
+
+.what-we-buy-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.everything-note {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    border: 3px solid rgba(0, 212, 255, 0.4);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+}
+
+.everything-note::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.everything-note p {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 0 80px rgba(0, 212, 255, 0.5);
+}
+
+/* Contact Section */
+.sell-contact-section {
+    padding: 6rem 2rem;
+    background: #0a0a0a;
+    position: relative;
+}
+
+.sell-contact-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-box {
+    max-width: 900px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 24px;
+    padding: 4rem 3rem;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.contact-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(10, 10, 10, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+    background: rgba(0, 212, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateX(10px);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.contact-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.contact-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quick-response {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.quick-response i {
+    color: #dc2626;
+    font-size: 1.2rem;
+    animation: boltPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes boltPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .athletes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .everything-note p {
+        font-size: 3.5rem;
+        letter-spacing: 6px;
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-title-simple {
+        font-size: 3.5rem;
+    }
+    
+    .athletes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .what-we-buy-section {
+        padding: 6rem 2rem;
+    }
+    
+    .everything-note {
+        padding: 3rem 2rem;
+    }
+    
+    .everything-note p {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .contact-box {
+        padding: 3rem 2rem;
+    }
+    
+    .contact-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .sell-hero-simple {
+        min-height: 70vh;
+        padding: 6rem 1.5rem 3rem;
+    }
+    
+    .hero-title-simple {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+    
+    .hero-subtitle-simple {
+        font-size: 1.1rem;
+    }
+    
+    .athletes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .athlete-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .what-we-buy-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .everything-note {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .everything-note p {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
+    .contact-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-title {
+        font-size: 2rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 1rem;
+    }
+    
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .contact-method:hover {
+        transform: translateY(-5px);
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .contact-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-simple {
+        font-size: 2rem;
+    }
+    
+    .everything-note p {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+}

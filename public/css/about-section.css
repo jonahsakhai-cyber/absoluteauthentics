@@ -1,0 +1,304 @@
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about-section {
+    padding: 10rem 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+    position: relative;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+/* ========================================
+   IMAGE SIDE
+   ======================================== */
+
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+.about-collection-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(0, 212, 255, 0.3);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.about-image-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.95) 0%, rgba(153, 27, 27, 0.95) 100%);
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 15px 40px rgba(220, 38, 38, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+}
+
+.about-image-badge i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.about-image-badge span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ========================================
+   TEXT SIDE
+   ======================================== */
+
+.about-text {
+    position: relative;
+    z-index: 2;
+}
+
+.about-header {
+    margin-bottom: 2.5rem;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.highlight-word {
+    color: #ff4444;
+    font-weight: 900;
+    text-shadow: 0 0 20px rgba(255, 68, 68, 0.5), 0 0 40px rgba(255, 68, 68, 0.3);
+}
+
+.section-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2626 0%, #00d4ff 100%);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+}
+
+.about-description {
+    margin-bottom: 3rem;
+}
+
+.about-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+.about-highlight {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    background: rgba(220, 38, 38, 0.1);
+    border-left: 4px solid #dc2626;
+    border-radius: 8px;
+}
+
+/* ========================================
+   STATS
+   ======================================== */
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(0, 212, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+/* ========================================
+   CTA BUTTONS
+   ======================================== */
+
+.about-cta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the buttons */
+}
+
+/* Make View Collection button light neon blue */
+.about-cta .btn-secondary {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid #00d4ff !important;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3) !important;
+}
+
+.about-cta .btn-secondary:hover {
+    background: linear-gradient(135deg, #00e4ff 0%, #00c8f6 100%) !important;
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5) !important;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .about-content {
+        gap: 4rem;
+    }
+    
+    .section-heading {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 968px) {
+    .about-section {
+        padding: 7rem 0;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .section-heading {
+        font-size: 2.5rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-section {
+        padding: 5rem 0;
+    }
+    
+    .section-heading {
+        font-size: 2rem;
+    }
+    
+    .about-description p {
+        font-size: 1rem;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .about-cta {
+        flex-direction: column;
+    }
+    
+    .about-cta .btn {
+        width: 100%;
+    }
+    
+    .about-image-wrapper {
+        max-height: 400px;
+        overflow: hidden;
+    }
+    
+    .about-collection-photo {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(1.1) contrast(1.05);
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.7),
+            0 0 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .about-image-badge {
+        bottom: 15px;
+        left: 15px;
+        padding: 1rem 1.5rem;
+    }
+}
