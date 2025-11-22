@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, copilot/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run tests
+      run: npm test
+      
+    - name: Start server (smoke test)
+      run: |
+        npm start &
+        SERVER_PID=$!
+        sleep 5
+        
+        # Test root endpoint
+        curl -f http://localhost:3000/ > /dev/null || exit 1
+        
+        # Test API health endpoint
+        curl -f http://localhost:3000/api/health | grep -q "ok" || exit 1
+        
+        # Test CSS is served
+        curl -f http://localhost:3000/css/style.css > /dev/null || exit 1
+        
+        kill $SERVER_PID
+        echo "✓ All smoke tests passed"
