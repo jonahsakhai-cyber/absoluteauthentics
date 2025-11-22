@@ -1,0 +1,484 @@
+/* ========================================
+   CONTACT SECTION - PROFESSIONAL PREMIUM DESIGN
+   ======================================== */
+
+.contact-section {
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle ambient glow - more professional */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contact-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at 70% 50%, rgba(220, 38, 38, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: 90vh;
+    position: relative;
+    z-index: 2;
+    gap: 0;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   LEFT SIDE - CONTACT INFO
+   ======================================== */
+
+.contact-info-side {
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 8rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle texture overlay */
+.contact-info-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            rgba(255, 255, 255, 0.01) 1px,
+            transparent 2px,
+            transparent 100px
+        );
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.contact-main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 2;
+}
+
+/* Subtle accent line under title */
+.contact-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #dc2626 0%, #00d4ff 100%);
+    border-radius: 2px;
+}
+
+.contact-arrow {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 10px 40px rgba(220, 38, 38, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.contact-arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 
+        0 15px 50px rgba(220, 38, 38, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.contact-arrow svg {
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+}
+
+.contact-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 4rem;
+    max-width: 500px;
+    font-weight: 300;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-encouragement {
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+    border-left: 3px solid #dc2626;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-encouragement h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-detail-item {
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-detail-item:hover {
+    transform: translateX(5px);
+}
+
+.contact-detail-item h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.6rem;
+}
+
+.contact-detail-item p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #00d4ff;
+    text-decoration: none;
+    margin-top: 0.8rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.map-link:hover {
+    color: #ffffff;
+    border-bottom-color: #00d4ff;
+    transform: translateX(3px);
+}
+
+/* ========================================
+   RIGHT SIDE - CONTACT FORM
+   ======================================== */
+
+.contact-form-side {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%);
+    padding: 8rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Minimal grid pattern */
+.contact-form-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.contact-form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+}
+
+/* Subtle accent line */
+.form-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #00d4ff 0%, #dc2626 100%);
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    width: 100%;
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+    font-weight: 300;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 300;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.form-submit-btn {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: #ffffff;
+    border: none;
+    padding: 1.3rem 3.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-top: 1.5rem;
+    align-self: flex-start;
+    box-shadow: 
+        0 10px 30px rgba(220, 38, 38, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.form-submit-btn:hover::before {
+    left: 100%;
+}
+
+.form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 40px rgba(220, 38, 38, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.form-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1400px) {
+    .contact-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .contact-info-side,
+    .contact-form-side {
+        padding: 6rem 4rem;
+    }
+    
+    .contact-main-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact-info-side,
+    .contact-form-side {
+        padding: 5rem 3rem;
+    }
+    
+    .contact-main-title {
+        font-size: 3rem;
+    }
+    
+    .form-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 968px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .contact-info-side {
+        padding: 5rem 3rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    
+    .contact-arrow {
+        top: auto;
+        bottom: -40px;
+        right: 50%;
+        transform: translateX(50%) rotate(90deg);
+    }
+    
+    .contact-arrow:hover {
+        transform: translateX(50%) rotate(90deg) scale(1.05);
+    }
+    
+    .contact-main-title {
+        font-size: 2.8rem;
+    }
+    
+    .contact-encouragement h3 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-form-side {
+        padding: 5rem 3rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .form-submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .contact-info-side,
+    .contact-form-side {
+        padding: 4rem 2rem;
+    }
+    
+    .contact-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .contact-encouragement {
+        padding-left: 1.5rem;
+    }
+    
+    .contact-encouragement h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-subtitle {
+        font-size: 1rem;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-arrow {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .contact-arrow svg {
+        width: 30px;
+        height: 30px;
+    }
+}
