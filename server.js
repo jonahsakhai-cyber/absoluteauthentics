@@ -7,8 +7,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Determine static directory (prefer public/, fallback to root)
-const publicDir = path.join(__dirname, 'public');
-const staticDir = fs.existsSync(publicDir) ? publicDir : __dirname;
+let staticDir = __dirname;
+try {
+  const publicDir = path.join(__dirname, 'public');
+  if (fs.existsSync(publicDir)) {
+    staticDir = publicDir;
+  }
+} catch (err) {
+  console.warn('Error checking for public directory:', err.message);
+}
 
 // Serve static assets
 app.use(express.static(staticDir));
@@ -21,10 +28,15 @@ app.get('/api/health', (req, res) => {
 // Catch-all: serve index.html for client-side routing
 app.get('*', (req, res) => {
   const indexPath = path.join(staticDir, 'index.html');
-  if (fs.existsSync(indexPath)) {
-    res.sendFile(indexPath);
-  } else {
-    res.status(404).send('index.html not found');
+  try {
+    if (fs.existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      res.status(404).send('index.html not found');
+    }
+  } catch (err) {
+    console.error('Error serving index.html:', err.message);
+    res.status(500).send('Internal server error');
   }
 });
 
