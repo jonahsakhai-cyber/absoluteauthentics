@@ -1,0 +1,403 @@
+/* ========================================
+   WHO WE ARE SECTION - WITH BACKGROUND IMAGE & TRANSITION
+   ======================================== */
+
+.who-we-are-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 10rem 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* ========================================
+   FULL BACKGROUND IMAGE (UNCROPPED)
+   ======================================== */
+
+.who-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    opacity: 1;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ========================================
+   TRANSITION OVERLAY (TIME-BASED)
+   ======================================== */
+
+.who-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(10, 10, 10, 0.85) 50%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+    z-index: 2;
+    opacity: 0;
+    animation: overlayFadeIn 2s ease-in-out forwards;
+}
+
+@keyframes overlayFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Subtle vignette effect */
+.who-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Radial glow accent */
+.who-overlay::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 60%);
+    filter: blur(80px);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ========================================
+   CONTENT (TIME-BASED APPEARANCE)
+   ======================================== */
+
+.who-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: contentFadeInUp 1.5s ease-in-out 1.5s forwards;
+}
+
+@keyframes contentFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.who-header {
+    margin-bottom: 3rem;
+}
+
+.who-label {
+    display: inline-block;
+    padding: 0.7rem 2rem;
+    background: rgba(220, 38, 38, 0.1);
+    border: 2px solid rgba(220, 38, 38, 0.4);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.who-title {
+    font-size: 5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ffffff 0%, #dc2626 30%, #ef4444 50%, #00d4ff 70%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+    filter: drop-shadow(0 0 40px rgba(220, 38, 38, 0.3));
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+/* ========================================
+   DESCRIPTION
+   ======================================== */
+
+.who-description {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+}
+
+.who-description p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    transition: all 0.6s ease;
+}
+
+.who-description strong {
+    color: #ff4444;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255, 68, 68, 0.4);
+}
+
+/* ========================================
+   SHOWCASE IMAGE
+   ======================================== */
+
+.who-showcase-image {
+    max-width: 350px;
+    margin: 0 auto 3rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(0, 212, 255, 0.2);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.who-showcase-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.who-showcase-image:hover img {
+    transform: scale(1.02);
+}
+
+/* ========================================
+   FEATURE CARDS - REDESIGNED
+   ======================================== */
+
+.who-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.who-feature-card {
+    background: rgba(15, 15, 15, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+
+.who-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.who-feature-card:hover::before {
+    opacity: 1;
+}
+
+.who-feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(220, 38, 38, 0.4);
+    background: rgba(20, 20, 20, 0.85);
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(220, 38, 38, 0.3);
+}
+
+.feature-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 10px 30px rgba(220, 38, 38, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.who-feature-card:hover .feature-icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 
+        0 15px 40px rgba(220, 38, 38, 0.6),
+        0 0 60px rgba(220, 38, 38, 0.5),
+        inset 0 2px 0 rgba(255, 255, 255, 0.4);
+}
+
+.feature-icon-wrapper i {
+    font-size: 2rem;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.who-feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+}
+
+.who-feature-card p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .who-title {
+        font-size: 4rem;
+    }
+    
+    .who-features {
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 968px) {
+    .who-we-are-section {
+        padding: 7rem 0;
+    }
+    
+    /* Mobile: Focus strongly on Jordan (RIGHT side of image) */
+    .who-background-image {
+        background-position: 75% center;
+    }
+    
+    .who-title {
+        font-size: 3rem;
+    }
+    
+    .who-description p {
+        font-size: 1.1rem;
+    }
+    
+    .who-features {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 500px;
+    }
+    
+    
+    .who-showcase-image {
+        margin: 0 auto 2.5rem;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 640px) {
+    .who-we-are-section {
+        padding: 5rem 0;
+    }
+    
+    /* Small mobile: Focus even more strongly on Jordan (RIGHT side) */
+    .who-background-image {
+        background-position: 80% center;
+    }
+    
+    .who-title {
+        font-size: 2.2rem;
+    }
+    
+    .who-description p {
+        font-size: 1rem;
+    }
+    
+    .who-feature-card {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .feature-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .feature-icon-wrapper i {
+        font-size: 2rem;
+    }
+    
+    .who-showcase-image {
+        margin: 0 auto 2.5rem;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 390px) {
+    .who-showcase-image {
+        margin: 0 auto 2rem;
+        max-width: 260px;
+    }
+}

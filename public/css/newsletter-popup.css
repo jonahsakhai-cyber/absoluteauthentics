@@ -1,0 +1,470 @@
+/* ========================================
+   NEWSLETTER POP-UP - TWO-COLUMN WITH PHOTO COLLAGE
+   ======================================== */
+
+.newsletter-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem;
+}
+
+.newsletter-popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.newsletter-popup {
+    position: relative;
+    max-width: 1150px;
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 2px solid rgba(0, 212, 255, 0.4);
+    border-radius: 24px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9),
+                0 0 80px rgba(0, 212, 255, 0.3);
+    animation: popupSlideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 90vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+@keyframes popupSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.newsletter-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(220, 38, 38, 0.2);
+    border: 2px solid rgba(220, 38, 38, 0.4);
+    border-radius: 50%;
+    color: #ff4444;
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.newsletter-close:hover {
+    background: rgba(220, 38, 38, 0.4);
+    border-color: rgba(220, 38, 38, 0.7);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+/* ========================================
+   PHOTO COLLAGE SECTION (LEFT SIDE)
+   ======================================== */
+
+.newsletter-collage {
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 22px 0 0 22px;
+}
+
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 100%;
+    gap: 0.4rem;
+    padding: 0.75rem;
+}
+
+.collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 60px;
+}
+
+.collage-item:hover {
+    transform: scale(1.08);
+    border-color: rgba(0, 212, 255, 0.7);
+    box-shadow: 0 10px 35px rgba(0, 212, 255, 0.5);
+    z-index: 5;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collage-item:hover img {
+    transform: scale(1.1);
+}
+
+.collage-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem;
+    pointer-events: none;
+}
+
+.collage-text {
+    text-align: center;
+    color: #fff;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.collage-text i {
+    font-size: 2rem;
+    color: #00d4ff;
+    margin-bottom: 0.5rem;
+    display: block;
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.8));
+}
+
+.collage-text p {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FORM CONTENT SECTION (RIGHT SIDE)
+   ======================================== */
+
+.newsletter-content {
+    padding: 3rem 3rem 3rem 2.5rem;
+    overflow-y: auto;
+}
+
+.newsletter-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.25) 0%, rgba(0, 212, 255, 0.1) 100%);
+    border: 2px solid rgba(0, 212, 255, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+    }
+}
+
+.newsletter-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.newsletter-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.newsletter-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: rgba(0, 212, 255, 0.6);
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.newsletter-submit {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #0088cc 100%);
+    border: none;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.newsletter-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+    background: linear-gradient(135deg, #00e4ff 0%, #0099dd 100%);
+}
+
+.newsletter-submit:active {
+    transform: translateY(-1px);
+}
+
+.newsletter-privacy {
+    text-align: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1rem;
+}
+
+/* Success Message */
+.newsletter-success {
+    padding: 2rem;
+    text-align: center;
+}
+
+.newsletter-success i {
+    font-size: 4.5rem;
+    color: #22c55e;
+    margin-bottom: 1.5rem;
+    animation: successPop 0.6s ease;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.newsletter-success h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.newsletter-success p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+   ======================================== */
+
+@media (max-width: 968px) {
+    .newsletter-popup {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        max-height: 85vh;
+    }
+    
+    .newsletter-collage {
+        border-radius: 22px 22px 0 0;
+        max-height: 320px;
+    }
+    
+    .collage-grid {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0.3rem;
+        padding: 0.6rem;
+    }
+    
+    .collage-overlay {
+        padding: 1.5rem;
+    }
+    
+    .collage-text i {
+        font-size: 1.5rem;
+    }
+    
+    .collage-text p {
+        font-size: 0.9rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .newsletter-content {
+        padding: 2.5rem 2rem;
+    }
+    
+    .newsletter-title {
+        font-size: 1.75rem;
+    }
+    
+    .newsletter-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .newsletter-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .newsletter-popup {
+        margin: 0.5rem;
+    }
+    
+    .newsletter-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .newsletter-title {
+        font-size: 1.5rem;
+    }
+    
+    .newsletter-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 0.8rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .newsletter-submit {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .newsletter-close {
+        width: 45px;
+        height: 45px;
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .collage-grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 0.25rem;
+    }
+    
+    .collage-item {
+        min-height: 50px;
+        border-radius: 6px;
+    }
+    
+    /* Hide last image on very small screens */
+    .collage-item:nth-child(21) {
+        display: none;
+    }
+}
