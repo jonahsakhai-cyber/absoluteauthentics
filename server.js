@@ -6,13 +6,18 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Determine static directory: prefer public/ if it exists, otherwise serve from root
+// Determine static directory: must be public/
 const publicDir = path.join(__dirname, 'public');
-let staticDir = __dirname;
+let staticDir = publicDir;
+
 try {
-  staticDir = fs.existsSync(publicDir) ? publicDir : __dirname;
+  if (!fs.existsSync(publicDir)) {
+    console.error('FATAL: public/ directory not found. Cannot start server.');
+    process.exit(1);
+  }
 } catch (err) {
-  console.warn('Error checking for public directory, serving from root:', err.message);
+  console.error('Error checking for public directory:', err.message);
+  process.exit(1);
 }
 
 // Serve static assets
